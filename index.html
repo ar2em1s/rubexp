@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>RubExp</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png">
+    <link rel="stylesheet" href="/rubexp/build/index.css">
+    <script src="/rubexp/build/index.js"></script>
+  </head>
+  <body class="bg-gray-900 text-slate-50 text-xl h-screen flex flex-col">
+    <div>
+  <a href="/rubexp/" class="w-fit text-2xl flex items-center p-1">
+    <img src="/rubexp/assets/img/logo.svg" alt="Logo" class="h-16 sm:h-12">
+    <span>RubExp</span>
+  </a>
+</div>
+
+    <main class="p-5 flex flex-col gap-6 items-center overflow-y-scroll">
+  <div
+    class="p-2 w-full md:w-3/4"
+    data-controller="regexp"
+    data-regexp-hidden-class="hidden"
+  >
+    <div class="flex flex-col gap-5 animate-pulse" data-regexp-target="contentSkeleton">
+  <div class="bg-slate-700 w-1/3 h-7 rounded"></div>
+  <div class="flex justify-center items-center gap-2">
+    <span>/</span>
+    <div class="bg-slate-700 w-8/12 h-10 rounded"></div>
+    <span>/</span>
+    <div class="bg-slate-700 w-1/12 h-10 rounded"></div>
+  </div>
+  <div class="flex flex-col md:flex-row gap-12 w-full">
+    <div class="flex-1 flex flex-col gap-5">
+      <div class="bg-slate-700 w-1/6 h-7 rounded"></div>
+      <div class="bg-slate-700 w-full h-52 rounded"></div>
+    </div>
+    <div class="flex-1 flex flex-col gap-5">
+      <div class="bg-slate-700 w-1/4 h-7 rounded"></div>
+      <div class="bg-slate-700 w-1/3 h-7 rounded"></div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="flex flex-col gap-5 hidden" data-regexp-target="content">
+      <div class="flex flex-col gap-5">
+  <h2>Regular expression:</h2>
+  <div class="flex justify-center items-center gap-2">
+    <span>/</span>
+    <input
+      type="text"
+      data-regexp-target="regexp"
+      data-action="input->regexp#test"
+      class="w-8/12 p-1 bg-transparent border border-slate-50 drop-shadow-md rounded">
+    <span>/</span>
+    <input
+      type="text"
+      data-regexp-target="flags"
+      data-action="input->regexp#test"
+      class="w-1/12 p-1 bg-transparent border border-slate-50 drop-shadow-md rounded">
+  </div>
+</div>
+
+      <div class="flex flex-col md:flex-row gap-12 w-full">
+  <div class="flex-1 flex flex-col gap-5">
+    <h3>Test:</h3>
+    <textarea
+      data-regexp-target="testText"
+      data-action="input->regexp#test"
+      class="w-full h-52 p-3 bg-transparent border border-slate-50 drop-shadow-md rounded"></textarea>
+  </div>
+  <div class="flex-1 flex flex-col gap-5">
+    <h3>
+      Result:</h3>
+    <div class="bg-slate-700 w-1/3 h-7 rounded animate-pulse hidden" data-regexp-target="resultsSkeleton"></div>
+    <div data-regexp-target="noResults">No matches...</div>
+    <div
+      class="whitespace-pre h-52 p-3 flex-1 overflow-y-scroll border border-slate-50 drop-shadow-md rounded hidden"
+      data-regexp-target="results"
+    >
+    </div>
+  </div>
+</div>
+
+      <div class="flex flex-col gap-5 w-full animate-pulse hidden" data-regexp-target="capturesContainerSkeleton">
+  <div class="bg-slate-700 w-1/3 h-7 rounded"></div>
+  <div class="grid grid-cols-3 gap-x-3 gap-y-6 justify-between">
+    <div class="p-2 flex flex-col gap-2 border border-slate-50 drop-shadow-md rounded">
+      <div class="bg-slate-700 w-1/3 h-7 rounded"></div>
+      <ul class="flex flex-col gap-y-1 text-lg">
+        <li>
+          <div class="bg-slate-700 w-2/3 h-7 rounded"></div>
+        <li>
+          <div class="bg-slate-700 w-3/4 h-7 rounded"></div>
+      </ul>
+    </div>
+    <div class="p-2 flex flex-col gap-2 border border-slate-50 drop-shadow-md rounded">
+      <div class="bg-slate-700 w-1/3 h-7 rounded"></div>
+      <ul class="flex flex-col gap-y-1 text-lg">
+        <li>
+          <div class="bg-slate-700 w-2/3 h-7 rounded"></div>
+        <li>
+          <div class="bg-slate-700 w-3/4 h-7 rounded"></div>
+      </ul>
+    </div>
+    <div class="p-2 flex flex-col gap-2 border border-slate-50 drop-shadow-md rounded">
+      <div class="bg-slate-700 w-1/3 h-7 rounded"></div>
+      <ul class="flex flex-col gap-y-1 text-lg">
+        <li>
+          <div class="bg-slate-700 w-2/3 h-7 rounded"></div>
+        <li>
+          <div class="bg-slate-700 w-3/4 h-7 rounded"></div>
+      </ul>
+    </div>
+  </div>
+</div>
+
+      <div class="flex flex-col gap-5 w-full hidden" data-regexp-target="capturesContainer">
+  <h3>Match groups:</h3>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-x-3 gap-y-6 justify-between" data-regexp-target="captures"></div>
+</div>
+
+    </div>
+  </div>
+
+  <div class="p-2 w-full md:w-3/4 flex flex-col gap-5">
+  <h2>Regexp cheetsheet:</h2>
+  <div class="p-3 flex flex-col gap-5 border border-slate-50 drop-shadow-md rounded">
+    <div class="text-md md:text-lg grid grid-cols-1 xl:grid-cols-2 gap-x-3 gap-y-3 md:gap-y-1">
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">[abc]</div>
+  <div class="break-words">A single character of: a, b, or c</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">[^abc]</div>
+  <div class="break-words">Any single character except: a, b, or c</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">[a-z]</div>
+  <div class="break-words">Any single character in the range a-z</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">[a-zA-Z]</div>
+  <div class="break-words">Any single character in the range a-z or A-Z</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">^</div>
+  <div class="break-words">Start of line</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">$</div>
+  <div class="break-words">End of line</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">\A</div>
+  <div class="break-words">Start of string</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">\z</div>
+  <div class="break-words">End of string</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">.</div>
+  <div class="break-words">Any single character</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">\s</div>
+  <div class="break-words">Any whitespace character</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">\S</div>
+  <div class="break-words">Any non-whitespace character</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">\d</div>
+  <div class="break-words">Any digit</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">\D</div>
+  <div class="break-words">Any non-digit</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">\w</div>
+  <div class="break-words">Any word character (letter, number, underscore)</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">\W</div>
+  <div class="break-words">Any non-word character</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">\b</div>
+  <div class="break-words">Any word boundary</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">(...)</div>
+  <div class="break-words">Capture everything enclosed</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">(a|b)</div>
+  <div class="break-words">a or b</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">a?</div>
+  <div class="break-words">Zero or one of a</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">a*</div>
+  <div class="break-words">Zero or more of a</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">a+</div>
+  <div class="break-words">One or more of a</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">a{3}</div>
+  <div class="break-words">Exactly 3 of a</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">a{3,}</div>
+  <div class="break-words">3 or more of a</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">a{3,6}</div>
+  <div class="break-words">Between 3 and 6 of a</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">(?=...)</div>
+  <div class="break-words">Positive lookahead</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">(?&lt;=...)</div>
+  <div class="break-words">Positive lookbehind</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">(?!=...)</div>
+  <div class="break-words">Negative lookahead</div>
+</div>
+
+      <div class="flex flex-col md:flex-row">
+  <div class="w-20">(?&lt;!...)</div>
+  <div class="break-words">Negative lookbehind</div>
+</div>
+
+    </div>
+    <div class="flex flex-col gap-2">
+      <h3>Flags:</h3>
+      <div class="text-md md:text-lg grid grid-cols-1 xl:grid-cols-2 gap-x-3 gap-y-3 md:gap-y-1">
+        <div class="flex flex-col md:flex-row">
+  <div class="w-20">i</div>
+  <div class="break-words">case insensitive</div>
+</div>
+
+        <div class="flex flex-col md:flex-row">
+  <div class="w-20">m</div>
+  <div class="break-words">make dot match newlines</div>
+</div>
+
+        <div class="flex flex-col md:flex-row">
+  <div class="w-20">x</div>
+  <div class="break-words">ignore whitespace in regex</div>
+</div>
+
+        <div class="flex flex-col md:flex-row">
+  <div class="w-20">o</div>
+  <div class="break-words">perform #{...} substitutions only once</div>
+</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+  </body>
+</html>
