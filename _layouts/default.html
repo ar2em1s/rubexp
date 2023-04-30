@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>{{ site.title }}</title>
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/img/favicon.png' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/build/index.css' | relative_url }}">
+    <script src="{{ '/build/index.js' | relative_url }}"></script>
+  </head>
+  <body class="bg-gray-900 text-slate-50 text-xl h-screen flex flex-col">
+    {% include header.html %}
+    {{ content }}
+  </body>
+</html>

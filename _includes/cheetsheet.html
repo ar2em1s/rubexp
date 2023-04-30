@@ -1,0 +1,44 @@
+<div class="p-2 w-full md:w-3/4 flex flex-col gap-5">
+  <h2>Regexp cheetsheet:</h2>
+  <div class="p-3 flex flex-col gap-5 border border-slate-50 drop-shadow-md rounded">
+    <div class="text-md md:text-lg grid grid-cols-1 xl:grid-cols-2 gap-x-3 gap-y-3 md:gap-y-1">
+      {% include cheetsheet/item.html expression='[abc]' description='A single character of: a, b, or c' %}
+      {% include cheetsheet/item.html expression='[^abc]' description='Any single character except: a, b, or c' %}
+      {% include cheetsheet/item.html expression='[a-z]'	description='Any single character in the range a-z' %}
+      {% include cheetsheet/item.html expression='[a-zA-Z]' description='Any single character in the range a-z or A-Z' %}
+      {% include cheetsheet/item.html expression='^' description='Start of line' %}
+      {% include cheetsheet/item.html expression='$' description='End of line' %}
+      {% include cheetsheet/item.html expression='\A' description='Start of string' %}
+      {% include cheetsheet/item.html expression='\z' description='End of string' %}
+      {% include cheetsheet/item.html expression='.' description='Any single character' %}
+      {% include cheetsheet/item.html expression='\s' description='Any whitespace character' %}
+      {% include cheetsheet/item.html expression='\S' description='Any non-whitespace character' %}
+      {% include cheetsheet/item.html expression='\d' description='Any digit' %}
+      {% include cheetsheet/item.html expression='\D' description='Any non-digit' %}
+      {% include cheetsheet/item.html expression='\w' description='Any word character (letter, number, underscore)' %}
+      {% include cheetsheet/item.html expression='\W' description='Any non-word character' %}
+      {% include cheetsheet/item.html expression='\b' description='Any word boundary' %}
+      {% include cheetsheet/item.html expression='(...)' description='Capture everything enclosed' %}
+      {% include cheetsheet/item.html expression='(a|b)' description='a or b' %}
+      {% include cheetsheet/item.html expression='a?' description='Zero or one of a' %}
+      {% include cheetsheet/item.html expression='a*' description='Zero or more of a' %}
+      {% include cheetsheet/item.html expression='a+' description='One or more of a' %}
+      {% include cheetsheet/item.html expression='a{3}' description='Exactly 3 of a' %}
+      {% include cheetsheet/item.html expression='a{3,}' description='3 or more of a' %}
+      {% include cheetsheet/item.html expression='a{3,6}' description='Between 3 and 6 of a' %}
+      {% include cheetsheet/item.html expression='(?=...)' description='Positive lookahead' %}
+      {% include cheetsheet/item.html expression='(?&lt;=...)' description='Positive lookbehind' %}
+      {% include cheetsheet/item.html expression='(?!=...)' description='Negative lookahead' %}
+      {% include cheetsheet/item.html expression='(?&lt;!...)' description='Negative lookbehind' %}
+    </div>
+    <div class="flex flex-col gap-2">
+      <h3>Flags:</h3>
+      <div class="text-md md:text-lg grid grid-cols-1 xl:grid-cols-2 gap-x-3 gap-y-3 md:gap-y-1">
+        {% include cheetsheet/item.html expression='i' description='case insensitive' %}
+        {% include cheetsheet/item.html expression='m' description='make dot match newlines' %}
+        {% include cheetsheet/item.html expression='x' description='ignore whitespace in regex' %}
+        {% include cheetsheet/item.html expression='o' description='perform #{...} substitutions only once' %}
+      </div>
+    </div>
+  </div>
+</div>

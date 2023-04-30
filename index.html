@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<main class="p-5 flex flex-col gap-6 items-center overflow-y-scroll">
+  <div
+    class="p-2 w-full md:w-3/4"
+    data-controller="regexp"
+    data-regexp-hidden-class="hidden"
+  >
+    {% include skeleton.html %}
+
+    <div class="flex flex-col gap-5 hidden" data-regexp-target="content">
+      {% include regexp_input.html %}
+      {% include test_input.html %}
+      {% include captures_skeleton.html %}
+      {% include captures.html %}
+    </div>
+  </div>
+
+  {% include cheetsheet.html %}
+</main>

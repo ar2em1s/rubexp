@@ -1,0 +1,14 @@
+title: RubExp
+description: >-
+  Online Ruby-based regular expression editor.
+url: ar2em1s.github.io
+baseurl: /rubexp
+
+exclude:
+  - package.json
+  - tailwind.config.js
+  - yarn.lock
+  - assets/css
+  - assets/js
+  - README.md
+  - LICENCE.txt

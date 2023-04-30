@@ -1,0 +1,26 @@
+{
+  "name": "rubexp",
+  "version": "1.0.0",
+  "description": "Online Ruby-based regular expression editor.",
+  "repository": "git@github.com:Ar2emis/rubexp.git",
+  "author": "Ar2emis <artemsheva0510@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "npm-run-all --parallel build:* && bundle exec jekyll build",
+    "build:css": "npx tailwindcss -i ./assets/css/index.css -o ./build/index.css --minify",
+    "build:js": "esbuild assets/js/index.js --outfile=./build/index.js --loader:.wasm=binary --bundle --minify",
+    "dev:jekyll": "jekyll serve --livereload --incremental",
+    "dev:css": "npx tailwindcss -i ./assets/css/index.css -o ./build/index.css --watch",
+    "dev:js": "esbuild ./assets/js/index.js --outfile=./build/index.js --loader:.wasm=binary --bundle --watch",
+    "serve": "npm-run-all --parallel dev:*"
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.18",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.3.2"
+  },
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.1",
+    "ruby-3_2-wasm-wasi": "^1.0.1"
+  }
+}
