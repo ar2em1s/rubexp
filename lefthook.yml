@@ -1,0 +1,9 @@
+pre-commit:
+  parallel: true
+  commands:
+    standardjs:
+      glob: "*.js"
+      run: yarn lint {all_files}
+    standardrb:
+      glob: "*.rb"
+      run: bundle exec standardrb {all_files}
