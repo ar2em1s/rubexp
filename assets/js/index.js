@@ -1,7 +1,7 @@
-import { Application } from '@hotwired/stimulus';
+import { Application } from '@hotwired/stimulus'
 
-import RegexpController from './regexp_controller';
+import RegexpController from './regexp_controller'
 
-window.Stimulus = Application.start();
+window.Stimulus = Application.start()
 
-Stimulus.register('regexp', RegexpController);
+window.Stimulus.register('regexp', RegexpController)

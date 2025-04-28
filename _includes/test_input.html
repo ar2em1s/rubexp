@@ -1,14 +1,14 @@
 <div class="flex flex-col md:flex-row gap-12 w-full">
   <div class="flex-1 flex flex-col gap-5">
-    <h3>Test:</h3>
+    <label for="test_input">Test:</label>
     <textarea
+      id="test_input"
       data-regexp-target="testText"
       data-action="input->regexp#test"
       class="w-full h-52 p-3 bg-transparent border border-slate-50 drop-shadow-md rounded"></textarea>
   </div>
   <div class="flex-1 flex flex-col gap-5">
-    <h3>
-      Result:</h3>
+    <h3>Result:</h3>
     <div class="bg-slate-700 w-1/3 h-7 rounded animate-pulse hidden" data-regexp-target="resultsSkeleton"></div>
     <div data-regexp-target="noResults">No matches...</div>
     <div

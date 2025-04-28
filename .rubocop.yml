@@ -1,15 +1,20 @@
+inherit_mode:
+  merge:
+    - Exclude
 
 require:
-  - rubocop-rake
+  - standard
+  - standard-custom
+  - standard-performance
   - rubocop-performance
 
+inherit_gem:
+  standard: config/base.yml
+  standard-performance: config/base.yml
+  standard-custom: config/base.yml
+
+inherit_from: []
+
 AllCops:
-  TargetRubyVersion: 3.2.2
-  NewCops: enable
   SuggestExtensions: false
-
-Layout/LineLength:
-  Max: 120
-
-Style/Documentation:
-  Enabled: false
+  TargetRubyVersion: 3.4

@@ -1,4 +1,4 @@
-const REGEXP_TESTER_CLASS = 'TestRegexp';
+const REGEXP_TESTER_CLASS = 'TestRegexp'
 
 const REGEXP_TESTER_CODE = `
 require 'js'
@@ -64,8 +64,6 @@ class ${REGEXP_TESTER_CLASS}
     JS.global[:Array].call(:call, NULL, *args)
   end
 end
-`;
+`
 
-
-
-export { REGEXP_TESTER_CODE, REGEXP_TESTER_CLASS };
+export { REGEXP_TESTER_CODE, REGEXP_TESTER_CLASS }
